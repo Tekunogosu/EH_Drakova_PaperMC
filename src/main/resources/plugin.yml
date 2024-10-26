@@ -1,0 +1,16 @@
+name: EH_Drakova
+version: '0.1.1'
+main: com.eldritchhollows.eH_Drakova.EH_Drakova
+api-version: '1.21'
+prefix: Drakova
+authors: [ Tekunogosu ]
+description: Plugin for the Drakova Server
+website: https://eldritchhollows.com
+commands:
+  giveitem:
+    description: "Give yourself Drakova Items"
+    permission: drakova.giveitem
+permissions:
+  drakova.giveitem:
+    default: op
+    description: ""
