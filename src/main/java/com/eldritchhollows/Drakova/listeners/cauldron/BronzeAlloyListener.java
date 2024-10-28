@@ -1,7 +1,7 @@
-package com.eldritchhollows.eH_Drakova.listeners.cauldron;
+package com.eldritchhollows.Drakova.listeners.cauldron;
 
-import com.eldritchhollows.eH_Drakova.items.BronzeAlloy;
-import com.eldritchhollows.eH_Drakova.utils.ItemModelDataEnum;
+import com.eldritchhollows.Drakova.items.BronzeAlloy;
+import com.eldritchhollows.Drakova.utils.ItemModelDataEnum;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -39,7 +39,8 @@ public class BronzeAlloyListener implements Listener {
     public void onPlayerInteract(PlayerInteractEvent event) {
 
         // only trigger for the main hand, so we don't trigger twice each time
-        if (event.getHand() != EquipmentSlot.HAND) return;
+        if (event.getHand() != EquipmentSlot.HAND)
+            return;
 
         // check if the player is right-clicking on a cauldron
         if (event.getAction() == Action.RIGHT_CLICK_BLOCK) {
@@ -49,30 +50,34 @@ public class BronzeAlloyListener implements Listener {
 
             if (block != null && block.getType() == Material.LAVA_CAULDRON) {
                 // level 3 indicates full of lava
-                    UUID playerID = player.getUniqueId();
-                    ItemStack handItem = player.getInventory().getItemInMainHand();
+                UUID playerID = player.getUniqueId();
+                ItemStack handItem = player.getInventory().getItemInMainHand();
 
-                    if (handItem.getType() == Material.RAW_IRON ) {
-                        incrementPlayerIron(playerID);
-                        consumeOneItem(player);
-                        player.sendMessage(Component.text("Added 1 iron (" + playerIronCount.get(playerID) + "/3)"));
-                        checkForBronzeCreation(player, block);
-                    } else if (isRawCassiterite(handItem)) {
-                        incrementCassiterite(playerID);
-                        consumeOneItem(player);
-                        player.sendMessage(Component.text("Added 1 cassiterite (" + playerCassiteriteCount.get(playerID) + "/1)"));
-                        checkForBronzeCreation(player, block);
-                    }
+                if (handItem.getType() == Material.RAW_IRON) {
+                    incrementPlayerIron(playerID);
+                    consumeOneItem(player);
+                    player.sendMessage(Component.text("Added 1 iron (" + playerIronCount.get(playerID) + "/3)"));
+                    checkForBronzeCreation(player, block);
+                } else if (isRawCassiterite(handItem)) {
+                    incrementCassiterite(playerID);
+                    consumeOneItem(player);
+                    player.sendMessage(
+                            Component.text("Added 1 cassiterite (" + playerCassiteriteCount.get(playerID) + "/1)"));
+                    checkForBronzeCreation(player, block);
+                }
 
             }
         }
     }
 
-    // Check for the actual tin item since it uses the iron nugget material, we don't want to allow an actual iron nugget.
+    // Check for the actual tin item since it uses the iron nugget material, we
+    // don't want to allow an actual iron nugget.
     private boolean isRawCassiterite(ItemStack item) {
-       if (item.getType() != Material.IRON_NUGGET) return false;
+        if (item.getType() != Material.IRON_NUGGET)
+            return false;
 
-       return item.hasItemMeta() && item.getItemMeta().hasCustomModelData() && item.getItemMeta().getCustomModelData() == ItemModelDataEnum.CASSITERITE_ORE.getId();
+        return item.hasItemMeta() && item.getItemMeta().hasCustomModelData()
+                && item.getItemMeta().getCustomModelData() == ItemModelDataEnum.CASSITERITE_ORE.getId();
     }
 
     private void incrementPlayerIron(UUID playerId) {
@@ -101,13 +106,11 @@ public class BronzeAlloyListener implements Listener {
             cauldron.getWorld().spawnParticle(
                     Particle.SMALL_FLAME,
                     cauldron.getLocation().add(0.5, 1, 0.5),
-                    10, 0.2, 0.2, 0.01
-            );
+                    10, 0.2, 0.2, 0.01);
             cauldron.getWorld().spawnParticle(
                     Particle.WHITE_SMOKE,
                     cauldron.getLocation().add(0.3, 0.8, 0.4),
-                    5, 0.3, 0.4, 0.01
-            );
+                    5, 0.3, 0.4, 0.01);
 
             player.sendMessage(Component.text("You have created Bronze Alloy!"));
 
@@ -116,13 +119,13 @@ public class BronzeAlloyListener implements Listener {
             int currentTin = playerCassiteriteCount.getOrDefault(playerId, 0);
 
             // subtract the amount required for the recipe
-            // since we know for sure that this amount is already in the hashmap, we don't need to check again that its
+            // since we know for sure that this amount is already in the hashmap, we don't
+            // need to check again that its
             // above the threshhold
             playerIronCount.put(playerId, currentIron - 3);
             playerCassiteriteCount.put(playerId, currentTin - 1);
 
         }
     }
-
 
 }

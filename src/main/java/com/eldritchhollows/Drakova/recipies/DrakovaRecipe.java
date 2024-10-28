@@ -1,4 +1,4 @@
-package com.eldritchhollows.eH_Drakova.recipies;
+package com.eldritchhollows.Drakova.recipies;
 
 import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;

@@ -1,9 +1,7 @@
-package com.eldritchhollows.eH_Drakova.items;
+package com.eldritchhollows.Drakova.items;
 
-import com.eldritchhollows.eH_Drakova.utils.ItemGenerator;
-import com.eldritchhollows.eH_Drakova.utils.ItemModelDataEnum;
-import org.bukkit.Material;
-import org.bukkit.inventory.ItemFactory;
+import com.eldritchhollows.Drakova.utils.ItemGenerator;
+import com.eldritchhollows.Drakova.utils.ItemModelDataEnum;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 

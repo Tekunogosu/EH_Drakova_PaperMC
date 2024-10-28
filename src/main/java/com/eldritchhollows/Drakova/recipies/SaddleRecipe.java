@@ -1,15 +1,15 @@
-package com.eldritchhollows.eH_Drakova.recipies;
+package com.eldritchhollows.Drakova.recipies;
 
+import com.eldritchhollows.Drakova.DrakovaPlugin;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
-import org.bukkit.plugin.java.JavaPlugin;
 
-public class Saddle extends DrakovaRecipe {
-    public Saddle(JavaPlugin plugin) {
-        super(plugin, "drak_saddle_crafting_bench");
+public class SaddleRecipe extends DrakovaRecipe {
+    public SaddleRecipe(DrakovaPlugin plugin) {
+        super(plugin, plugin.id() + "_saddle_crafting_bench");
     }
 
     public void register() {

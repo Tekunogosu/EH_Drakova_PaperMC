@@ -1,6 +1,6 @@
-name: EH_Drakova
+name: DrakovaPlugin
 version: '0.1.1'
-main: com.eldritchhollows.eH_Drakova.EH_Drakova
+main: com.eldritchhollows.Drakova.DrakovaPlugin
 api-version: '1.21'
 prefix: Drakova
 authors: [ Tekunogosu ]

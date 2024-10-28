@@ -1,28 +1,26 @@
-package com.eldritchhollows.eH_Drakova.recipies;
+package com.eldritchhollows.Drakova.recipies;
 
-import com.eldritchhollows.eH_Drakova.items.BronzeAlloy;
-import com.eldritchhollows.eH_Drakova.items.BronzeIngot;
-import com.eldritchhollows.eH_Drakova.utils.ItemModelDataEnum;
+import com.eldritchhollows.Drakova.DrakovaPlugin;
+import com.eldritchhollows.Drakova.items.BronzeAlloy;
+import com.eldritchhollows.Drakova.items.BronzeIngot;
 import org.bukkit.Bukkit;
-import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.BlastingRecipe;
 import org.bukkit.inventory.FurnaceRecipe;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.plugin.java.JavaPlugin;
 
 public class BronzeIngotRecipe {
-    public final JavaPlugin plugin;
+    public final DrakovaPlugin plugin;
 
-    public BronzeIngotRecipe(JavaPlugin plugin) {
+    public BronzeIngotRecipe(DrakovaPlugin plugin) {
         this.plugin = plugin;
     }
 
     public void register() {
         ItemStack bronzeIngot = BronzeIngot.create();
 
-        NamespacedKey furnaceKey = new NamespacedKey(plugin, "drak_bronze_ingot_furnace");
-        NamespacedKey blastFurnaceKey = new NamespacedKey(plugin, "drak_bronze_ingot_blast_furnace");
+        NamespacedKey furnaceKey = new NamespacedKey(plugin, plugin.id() + "_bronze_ingot_furnace");
+        NamespacedKey blastFurnaceKey = new NamespacedKey(plugin, plugin.id() + "_bronze_ingot_blast_furnace");
 
         FurnaceRecipe furnaceRecipe = new FurnaceRecipe(furnaceKey, bronzeIngot, bronzeIngot.getType(), 0.5f, 250);
         furnaceRecipe.setInput(BronzeAlloy.create().getType());

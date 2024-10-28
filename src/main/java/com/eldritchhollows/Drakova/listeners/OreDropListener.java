@@ -1,6 +1,6 @@
-package com.eldritchhollows.eH_Drakova.listeners;
+package com.eldritchhollows.Drakova.listeners;
 
-import com.eldritchhollows.eH_Drakova.items.CassiteriteOre;
+import com.eldritchhollows.Drakova.items.CassiteriteOre;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;

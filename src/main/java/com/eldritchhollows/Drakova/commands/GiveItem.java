@@ -1,9 +1,9 @@
-package com.eldritchhollows.eH_Drakova.commands;
+package com.eldritchhollows.Drakova.commands;
 
-import com.eldritchhollows.eH_Drakova.items.BronzeAlloy;
-import com.eldritchhollows.eH_Drakova.items.BronzeArmor;
-import com.eldritchhollows.eH_Drakova.items.BronzeIngot;
-import com.eldritchhollows.eH_Drakova.items.DarkAxe;
+import com.eldritchhollows.Drakova.items.BronzeAlloy;
+import com.eldritchhollows.Drakova.items.BronzeArmor;
+import com.eldritchhollows.Drakova.items.BronzeIngot;
+import com.eldritchhollows.Drakova.items.DarkAxe;
 import net.kyori.adventure.text.Component;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

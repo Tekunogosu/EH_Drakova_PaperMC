@@ -1,12 +1,9 @@
-package com.eldritchhollows.eH_Drakova.items;
+package com.eldritchhollows.Drakova.items;
 
-import com.eldritchhollows.eH_Drakova.utils.ItemGenerator;
-import com.eldritchhollows.eH_Drakova.utils.ItemModelDataEnum;
-import org.bukkit.Bukkit;
-import org.bukkit.Material;
+import com.eldritchhollows.Drakova.utils.ItemGenerator;
+import com.eldritchhollows.Drakova.utils.ItemModelDataEnum;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.plugin.java.JavaPlugin;
 
 public class BronzeIngot {
 

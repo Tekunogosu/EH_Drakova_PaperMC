@@ -1,4 +1,4 @@
-package com.eldritchhollows.eH_Drakova.utils;
+package com.eldritchhollows.Drakova.utils;
 
 import net.kyori.adventure.text.Component;
 import org.bukkit.Material;
