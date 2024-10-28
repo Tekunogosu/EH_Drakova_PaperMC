@@ -1,17 +1,17 @@
 package com.eldritchhollows.Drakova.utils;
 
 public enum DrakSkills {
-    BLACKSMITHING("blacksmithing", "Blacksmithing", "Mistress of metal"),
+    SMITHING("smithing", "Smithing", "Mistress of metal"),
     WOODWORKING("woodworking", "Woodworking", "Shaper of trees");
 
     private String skillName;
     private String description;
-    private String lore;
+    private String displayName;
 
-    DrakSkills(String skillName, String description, String lore) {
+    DrakSkills(String skillName, String description, String displayName) {
         this.skillName = skillName;
         this.description = description;
-        this.lore = lore;
+        this.displayName = displayName;
     }
 
     public String id() {
@@ -22,8 +22,8 @@ public enum DrakSkills {
         return this.description;
     }
 
-    public String getLore() {
-        return this.lore;
+    public String getDisplayName() {
+        return this.displayName;
     }
 
 }

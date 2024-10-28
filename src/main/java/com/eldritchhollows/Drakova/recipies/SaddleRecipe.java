@@ -9,7 +9,7 @@ import org.bukkit.inventory.ShapedRecipe;
 
 public class SaddleRecipe extends DrakovaRecipe {
     public SaddleRecipe(DrakovaPlugin plugin) {
-        super(plugin, plugin.id() + "_saddle_crafting_bench");
+        super(plugin, DrakovaPlugin.id + "_saddle_crafting_bench");
     }
 
     public void register() {

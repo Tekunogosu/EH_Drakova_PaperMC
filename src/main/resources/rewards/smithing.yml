@@ -3,9 +3,9 @@ patterns:
     stat: luck
     value: 1
     pattern:
-      interval: 1
+      interval: 4
   - type: stat
     stat: toughness
     value: 1
     pattern:
-      interval: 1
+      interval: 4

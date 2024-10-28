@@ -6,26 +6,24 @@ import com.eldritchhollows.Drakova.listeners.cauldron.BronzeAlloyListener;
 import com.eldritchhollows.Drakova.recipies.BronzeIngotRecipe;
 import com.eldritchhollows.Drakova.recipies.SaddleRecipe;
 import com.eldritchhollows.Drakova.skills.CustomSkills;
+import com.eldritchhollows.Drakova.skills.SmithingLeveler;
+import com.eldritchhollows.Drakova.skills.SmithingSourceParser;
 import com.eldritchhollows.Drakova.utils.ConfigManager;
 import com.eldritchhollows.Drakova.utils.DrakSkills;
 import dev.aurelium.auraskills.api.AuraSkillsApi;
 import dev.aurelium.auraskills.api.registry.NamespacedRegistry;
-import net.kyori.adventure.text.Component;
-import org.bukkit.configuration.file.FileConfiguration;
+import dev.aurelium.auraskills.api.source.SourceType;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class DrakovaPlugin extends JavaPlugin {
 
-    private final String id = "drakova";
+    public static final String id = "drakova";
 
     private ConfigManager configManager;
 
     @Override
     public void onEnable() {
 
-        this.getComponentLogger().info(Component.text("******************************************** DRAKOVA INFO!!!!! ************************"));
-        this.getComponentLogger().warn(Component.text("******************************************** DRAKOVA WARN!!!!! ************************"));
-        this.getComponentLogger().error(Component.text("******************************************** DRAKOVA ERROR!!!! ************************"));
         // create the ConfigManager and initialize all the configurations (this happens in the ConfigManager);
         configManager = new ConfigManager(this);
 
@@ -57,15 +55,11 @@ public final class DrakovaPlugin extends JavaPlugin {
 
     private void registerCustomSkills() {
         AuraSkillsApi auraSkills = AuraSkillsApi.get();
-        NamespacedRegistry registry = auraSkills.useRegistry(this.id, this.getDataFolder());
-        registry.registerSkill(CustomSkills.BLACKSMITHING);
+        NamespacedRegistry registry = auraSkills.useRegistry(id, this.getDataFolder());
+        registry.registerSkill(CustomSkills.SMITHING);
         // registry.registerSkill(CustomSkills.WOODWORKING);
 
-        FileConfiguration bsConfig = configManager.getSource(DrakSkills.BLACKSMITHING.id());
+        SourceType smithingSource = registry.registerSourceType(DrakSkills.SMITHING.id(), new SmithingSourceParser());
+        new SmithingLeveler(this, smithingSource).register();
     }
-
-    public String id() {
-        return this.id;
-    }
-
 }

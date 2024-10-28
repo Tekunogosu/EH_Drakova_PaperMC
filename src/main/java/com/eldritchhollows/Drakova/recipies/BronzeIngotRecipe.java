@@ -19,8 +19,8 @@ public class BronzeIngotRecipe {
     public void register() {
         ItemStack bronzeIngot = BronzeIngot.create();
 
-        NamespacedKey furnaceKey = new NamespacedKey(plugin, plugin.id() + "_bronze_ingot_furnace");
-        NamespacedKey blastFurnaceKey = new NamespacedKey(plugin, plugin.id() + "_bronze_ingot_blast_furnace");
+        NamespacedKey furnaceKey = new NamespacedKey(plugin, DrakovaPlugin.id + "_bronze_ingot_furnace");
+        NamespacedKey blastFurnaceKey = new NamespacedKey(plugin, DrakovaPlugin.id + "_bronze_ingot_blast_furnace");
 
         FurnaceRecipe furnaceRecipe = new FurnaceRecipe(furnaceKey, bronzeIngot, bronzeIngot.getType(), 0.5f, 250);
         furnaceRecipe.setInput(BronzeAlloy.create().getType());
