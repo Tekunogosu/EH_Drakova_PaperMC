@@ -1,4 +1,4 @@
 sources:
   smith:
     type: drakova/smithing
-
+    multiplier: 10

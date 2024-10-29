@@ -5,7 +5,6 @@ import dev.aurelium.auraskills.api.AuraSkillsApi;
 import dev.aurelium.auraskills.api.source.LevelerContext;
 import dev.aurelium.auraskills.api.source.SourceType;
 import dev.aurelium.auraskills.api.user.SkillsUser;
-import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -38,7 +37,6 @@ public class SmithingLeveler implements Listener {
         Player player = event.getPlayer();
 
         if (event.getItemType() == Material.IRON_INGOT) {
-            player.sendMessage(Component.text("Event getItemAmount: " + event.getItemAmount()));
             SkillsUser user = auraSkills.getUser(player.getUniqueId());
             user.addSkillXp(CustomSkills.SMITHING, 200 * event.getItemAmount());
         }

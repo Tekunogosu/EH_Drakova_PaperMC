@@ -1,6 +1,7 @@
 package com.eldritchhollows.Drakova;
 
 import com.eldritchhollows.Drakova.commands.GiveItem;
+import com.eldritchhollows.Drakova.items.SmithingHammer;
 import com.eldritchhollows.Drakova.listeners.OreDropListener;
 import com.eldritchhollows.Drakova.listeners.cauldron.BronzeAlloyListener;
 import com.eldritchhollows.Drakova.recipies.BronzeIngotRecipe;
@@ -8,6 +9,7 @@ import com.eldritchhollows.Drakova.recipies.SaddleRecipe;
 import com.eldritchhollows.Drakova.skills.CustomSkills;
 import com.eldritchhollows.Drakova.skills.SmithingLeveler;
 import com.eldritchhollows.Drakova.skills.SmithingSourceParser;
+import com.eldritchhollows.Drakova.skills.smithing.MetallurgySmelting;
 import com.eldritchhollows.Drakova.utils.ConfigManager;
 import com.eldritchhollows.Drakova.utils.DrakSkills;
 import dev.aurelium.auraskills.api.AuraSkillsApi;
@@ -32,6 +34,10 @@ public final class DrakovaPlugin extends JavaPlugin {
         registerListeners();
         registerCommands();
         registerCustomSkills();
+
+        new MetallurgySmelting(this).register().addRecipes();
+        new SmithingHammer(this).register();
+
     }
 
     @Override
@@ -42,6 +48,7 @@ public final class DrakovaPlugin extends JavaPlugin {
     private void registerCustomRecipes() {
         new SaddleRecipe(this).register();
         new BronzeIngotRecipe(this).register();
+
     }
 
     private void registerListeners() {
@@ -62,4 +69,5 @@ public final class DrakovaPlugin extends JavaPlugin {
         SourceType smithingSource = registry.registerSourceType(DrakSkills.SMITHING.id(), new SmithingSourceParser());
         new SmithingLeveler(this, smithingSource).register();
     }
+
 }

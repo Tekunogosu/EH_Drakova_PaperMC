@@ -1,9 +1,6 @@
 package com.eldritchhollows.Drakova.commands;
 
-import com.eldritchhollows.Drakova.items.BronzeAlloy;
-import com.eldritchhollows.Drakova.items.BronzeArmor;
-import com.eldritchhollows.Drakova.items.BronzeIngot;
-import com.eldritchhollows.Drakova.items.DarkAxe;
+import com.eldritchhollows.Drakova.items.*;
 import net.kyori.adventure.text.Component;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -56,6 +53,9 @@ public class GiveItem implements CommandExecutor {
                 break;
             case "dark_axe":
                 item = DarkAxe.create();
+                break;
+            case "smithing_hammer":
+                item = SmithingHammer.create();
                 break;
             default:
                 player.sendMessage("§cUnknown item. Available items: bronze_alloy, bronze_ingot, bronze_chestplate, bronze_helmet");

@@ -105,11 +105,5 @@
             <version>2.2.0</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>com.willfp</groupId>
-            <artifactId>EcoBits</artifactId>
-            <version>1.8.4</version>
-            <scope>provided</scope>
-        </dependency>
     </dependencies>
 </project>

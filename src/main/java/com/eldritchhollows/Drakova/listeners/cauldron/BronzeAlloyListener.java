@@ -99,7 +99,8 @@ public class BronzeAlloyListener implements Listener {
         UUID playerId = player.getUniqueId();
         if (playerIronCount.getOrDefault(playerId, 0) >= 3 && playerCassiteriteCount.getOrDefault(playerId, 0) >= 1) {
             // create the bronze alloy and drop it at the players feat
-            player.getWorld().dropItemNaturally(player.getLocation(), BronzeAlloy.create());
+//            player.getWorld().dropItemNaturally(player.getLocation(), BronzeAlloy.create());
+            player.getWorld().dropItem(player.getLocation(), BronzeAlloy.create());
 
             // play effects
             cauldron.getWorld().playSound(cauldron.getLocation(), Sound.BLOCK_LAVA_EXTINGUISH, 1.0f, 1.0f);
