@@ -2,7 +2,7 @@ package com.eldritchhollows.Drakova.utils;
 
 import org.bukkit.Material;
 
-public enum ItemModelDataEnum {
+public enum EItemModelData {
 
     /**
      * Number scheme prefix
@@ -39,7 +39,7 @@ public enum ItemModelDataEnum {
     DARK_AXE(604000, "Dark Axe of Death", "It's dark AND an Axe, crazy!", Material.IRON_AXE),
 
     // Tools
-    SMITHING_HAMMER(605000, "&#007676Smithing Hammer", null, Material.MACE),
+    SMITHING_HAMMER(605000, "<&#007676>Smithing Hammer", null, Material.MACE),
     ;
 
     private final int id;
@@ -47,7 +47,7 @@ public enum ItemModelDataEnum {
     private String lore;
     private final Material material;
 
-    ItemModelDataEnum(int id, String displayName, String lore, Material material) {
+    EItemModelData(int id, String displayName, String lore, Material material) {
         this.id = id;
         this.displayName = displayName;
         if (lore != null) this.lore = lore;

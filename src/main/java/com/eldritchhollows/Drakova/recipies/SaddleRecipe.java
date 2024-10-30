@@ -1,6 +1,7 @@
 package com.eldritchhollows.Drakova.recipies;
 
 import com.eldritchhollows.Drakova.DrakovaPlugin;
+import com.eldritchhollows.Drakova.utils.DrakovaRecipe;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;

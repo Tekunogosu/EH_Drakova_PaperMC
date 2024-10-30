@@ -1,17 +1,13 @@
 package com.eldritchhollows.Drakova;
 
 import com.eldritchhollows.Drakova.commands.GiveItem;
-import com.eldritchhollows.Drakova.items.SmithingHammer;
-import com.eldritchhollows.Drakova.listeners.OreDropListener;
-import com.eldritchhollows.Drakova.listeners.cauldron.BronzeAlloyListener;
-import com.eldritchhollows.Drakova.recipies.BronzeIngotRecipe;
+import com.eldritchhollows.Drakova.mining.listeners.OreDropListener;
 import com.eldritchhollows.Drakova.recipies.SaddleRecipe;
-import com.eldritchhollows.Drakova.skills.CustomSkills;
-import com.eldritchhollows.Drakova.skills.SmithingLeveler;
-import com.eldritchhollows.Drakova.skills.SmithingSourceParser;
-import com.eldritchhollows.Drakova.skills.smithing.MetallurgySmelting;
+import com.eldritchhollows.Drakova.smithing.SmithingLeveler;
+import com.eldritchhollows.Drakova.smithing.SmithingSourceParser;
 import com.eldritchhollows.Drakova.utils.ConfigManager;
-import com.eldritchhollows.Drakova.utils.DrakSkills;
+import com.eldritchhollows.Drakova.utils.DrakovaSkillsManager;
+import com.eldritchhollows.Drakova.utils.EDrakovaSkills;
 import dev.aurelium.auraskills.api.AuraSkillsApi;
 import dev.aurelium.auraskills.api.registry.NamespacedRegistry;
 import dev.aurelium.auraskills.api.source.SourceType;
@@ -33,10 +29,11 @@ public final class DrakovaPlugin extends JavaPlugin {
         registerCustomRecipes();
         registerListeners();
         registerCommands();
-        registerCustomSkills();
 
-        new MetallurgySmelting(this).register().addRecipes();
-        new SmithingHammer(this).register();
+
+        // All skills are registered within DrakovaSkillsManager class
+        new DrakovaSkillsManager(this).register();
+
 
     }
 
@@ -47,13 +44,10 @@ public final class DrakovaPlugin extends JavaPlugin {
 
     private void registerCustomRecipes() {
         new SaddleRecipe(this).register();
-        new BronzeIngotRecipe(this).register();
-
     }
 
     private void registerListeners() {
         new OreDropListener(this).register();
-        new BronzeAlloyListener(this).register();
     }
 
     private void registerCommands() {
@@ -63,10 +57,11 @@ public final class DrakovaPlugin extends JavaPlugin {
     private void registerCustomSkills() {
         AuraSkillsApi auraSkills = AuraSkillsApi.get();
         NamespacedRegistry registry = auraSkills.useRegistry(id, this.getDataFolder());
-        registry.registerSkill(CustomSkills.SMITHING);
-        // registry.registerSkill(CustomSkills.WOODWORKING);
+        registry.registerSkill(DrakovaSkillsManager.SMITHING);
+        registry.registerSkill(DrakovaSkillsManager.METALLURGY);
+        // registry.registerSkill(DrakovaSkillsManager.WOODWORKING);
 
-        SourceType smithingSource = registry.registerSourceType(DrakSkills.SMITHING.id(), new SmithingSourceParser());
+        SourceType smithingSource = registry.registerSourceType(EDrakovaSkills.SMITHING.id(), new SmithingSourceParser());
         new SmithingLeveler(this, smithingSource).register();
     }
 

@@ -1,8 +1,10 @@
-package com.eldritchhollows.Drakova.listeners;
+package com.eldritchhollows.Drakova.mining.listeners;
 
-import com.eldritchhollows.Drakova.items.CassiteriteOre;
+import com.eldritchhollows.Drakova.mining.items.CassiteriteOre;
 import org.bukkit.Bukkit;
+import org.bukkit.GameMode;
 import org.bukkit.Material;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
@@ -25,10 +27,14 @@ public class OreDropListener implements Listener {
 
     @EventHandler
     public void onBlockBreak(BlockBreakEvent event) {
-        if (event.getBlock().getType() == Material.STONE) {
-            if (random.nextDouble() < CassiteriteOre.rarity()) {
-                event.getBlock().getWorld().dropItemNaturally(event.getBlock().getLocation(), CassiteriteOre.create());
+        Player player = event.getPlayer();
+        if (player.getGameMode() == GameMode.SURVIVAL && player.getInventory().getItemInMainHand().getType().toString().contains("pickaxe")) {
+            if (event.getBlock().getType() == Material.STONE) {
+                if (random.nextDouble() < CassiteriteOre.rarity()) {
+                    event.getBlock().getWorld().dropItemNaturally(event.getBlock().getLocation(), CassiteriteOre.create());
+                }
             }
+
         }
     }
 }

@@ -1,19 +1,19 @@
-package com.eldritchhollows.Drakova.recipies;
+package com.eldritchhollows.Drakova.metallurgy.recipes;
 
 import com.eldritchhollows.Drakova.DrakovaPlugin;
-import com.eldritchhollows.Drakova.items.BronzeAlloy;
-import com.eldritchhollows.Drakova.items.BronzeIngot;
+import com.eldritchhollows.Drakova.metallurgy.items.BronzeAlloy;
+import com.eldritchhollows.Drakova.metallurgy.items.BronzeIngot;
+import com.eldritchhollows.Drakova.utils.DrakovaRecipe;
 import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.BlastingRecipe;
 import org.bukkit.inventory.FurnaceRecipe;
 import org.bukkit.inventory.ItemStack;
 
-public class BronzeIngotRecipe {
-    public final DrakovaPlugin plugin;
+public class BronzeIngotRecipe extends DrakovaRecipe {
 
     public BronzeIngotRecipe(DrakovaPlugin plugin) {
-        this.plugin = plugin;
+        super(plugin);
     }
 
     public void register() {

@@ -1,7 +1,7 @@
-package com.eldritchhollows.Drakova.listeners.cauldron;
+package com.eldritchhollows.Drakova.metallurgy.listeners;
 
-import com.eldritchhollows.Drakova.items.BronzeAlloy;
-import com.eldritchhollows.Drakova.utils.ItemModelDataEnum;
+import com.eldritchhollows.Drakova.metallurgy.items.BronzeAlloy;
+import com.eldritchhollows.Drakova.utils.EItemModelData;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -77,7 +77,7 @@ public class BronzeAlloyListener implements Listener {
             return false;
 
         return item.hasItemMeta() && item.getItemMeta().hasCustomModelData()
-                && item.getItemMeta().getCustomModelData() == ItemModelDataEnum.CASSITERITE_ORE.getId();
+                && item.getItemMeta().getCustomModelData() == EItemModelData.CASSITERITE_ORE.getId();
     }
 
     private void incrementPlayerIron(UUID playerId) {

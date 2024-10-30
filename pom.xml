@@ -53,7 +53,7 @@
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>/mnt/catalyst/paper-teramc/plugins/</outputDirectory>
+                            <outputDirectory>/mnt/catalyst/purpur-teramc/plugins/</outputDirectory>
                             <resources>
                                 <resource>
                                     <directory>${project.build.directory}</directory>

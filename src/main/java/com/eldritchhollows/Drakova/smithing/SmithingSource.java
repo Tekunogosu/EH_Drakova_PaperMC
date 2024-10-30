@@ -1,4 +1,4 @@
-package com.eldritchhollows.Drakova.skills;
+package com.eldritchhollows.Drakova.smithing;
 
 import dev.aurelium.auraskills.api.AuraSkillsApi;
 import dev.aurelium.auraskills.api.source.CustomSource;

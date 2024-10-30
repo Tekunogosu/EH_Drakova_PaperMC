@@ -1,6 +1,7 @@
-package com.eldritchhollows.Drakova.skills;
+package com.eldritchhollows.Drakova.smithing;
 
 import com.eldritchhollows.Drakova.DrakovaPlugin;
+import com.eldritchhollows.Drakova.utils.DrakovaSkillsManager;
 import dev.aurelium.auraskills.api.AuraSkillsApi;
 import dev.aurelium.auraskills.api.source.LevelerContext;
 import dev.aurelium.auraskills.api.source.SourceType;
@@ -38,7 +39,7 @@ public class SmithingLeveler implements Listener {
 
         if (event.getItemType() == Material.IRON_INGOT) {
             SkillsUser user = auraSkills.getUser(player.getUniqueId());
-            user.addSkillXp(CustomSkills.SMITHING, 200 * event.getItemAmount());
+            user.addSkillXp(DrakovaSkillsManager.SMITHING, 200 * event.getItemAmount());
         }
 
 

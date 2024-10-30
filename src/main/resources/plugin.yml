@@ -1,7 +1,9 @@
 name: DrakovaPlugin
 version: '0.1.1'
 main: com.eldritchhollows.Drakova.DrakovaPlugin
-api-version: '1.21'
+api-version: '1.21.1'
+depend: [ AuraSkills, Vault ]
+load: POSTWORLD
 prefix: Drakova
 authors: [ Tekunogosu ]
 description: Plugin for the Drakova Server

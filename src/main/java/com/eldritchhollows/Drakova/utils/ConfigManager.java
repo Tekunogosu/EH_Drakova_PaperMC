@@ -26,8 +26,8 @@ public class ConfigManager {
     public void initConfigs() {
         plugin.getLogger().warning("Attempting to create drakova configs...");
         registerConfig("config.yml");
-        registerConfig(REWARDS_DIR + "/" + DrakSkills.SMITHING.id());
-        registerConfig(SOURCES_DIR + "/" + DrakSkills.SMITHING.id());
+        registerConfig(REWARDS_DIR + "/" + EDrakovaSkills.SMITHING.id());
+        registerConfig(SOURCES_DIR + "/" + EDrakovaSkills.SMITHING.id());
     }
 
     private void registerConfig(String configName) {

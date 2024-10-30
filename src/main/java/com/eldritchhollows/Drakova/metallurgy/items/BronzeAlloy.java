@@ -1,7 +1,7 @@
-package com.eldritchhollows.Drakova.items;
+package com.eldritchhollows.Drakova.metallurgy.items;
 
 import com.eldritchhollows.Drakova.utils.ItemGenerator;
-import com.eldritchhollows.Drakova.utils.ItemModelDataEnum;
+import com.eldritchhollows.Drakova.utils.EItemModelData;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
@@ -9,10 +9,10 @@ import org.jetbrains.annotations.NotNull;
 public class BronzeAlloy {
     public static @NotNull ItemStack create() {
         return ItemGenerator.CreateNewItem(
-                ItemModelDataEnum.BRONZE_ALLOY.getDisplayName(),
-                ItemModelDataEnum.BRONZE_ALLOY.getLore(),
-                ItemModelDataEnum.BRONZE_ALLOY.getMaterial(),
-                ItemModelDataEnum.BRONZE_ALLOY.getId(),
+                EItemModelData.BRONZE_ALLOY.getDisplayName(),
+                EItemModelData.BRONZE_ALLOY.getLore(),
+                EItemModelData.BRONZE_ALLOY.getMaterial(),
+                EItemModelData.BRONZE_ALLOY.getId(),
                 new ItemFlag[]{ItemFlag.HIDE_ATTRIBUTES}
         );
     }

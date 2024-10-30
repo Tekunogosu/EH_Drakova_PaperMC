@@ -1,4 +1,4 @@
-package com.eldritchhollows.Drakova.skills.smithing;
+package com.eldritchhollows.Drakova.metallurgy;
 
 public enum MetallurgyFlags {
     HOT((byte) 0);
