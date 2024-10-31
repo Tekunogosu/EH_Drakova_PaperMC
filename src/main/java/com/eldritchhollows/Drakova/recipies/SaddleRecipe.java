@@ -10,12 +10,12 @@ import org.bukkit.inventory.ShapedRecipe;
 
 public class SaddleRecipe extends DrakovaRecipe {
     public SaddleRecipe(DrakovaPlugin plugin) {
-        super(plugin, DrakovaPlugin.id + "_saddle_crafting_bench");
+        super(plugin);
     }
 
     public void register() {
         ItemStack saddle = new ItemStack(Material.SADDLE);
-        super.key = new NamespacedKey(plugin, super.RecipeKey);
+        NamespacedKey key = new NamespacedKey(plugin, DrakovaPlugin.id + "_saddle_crafting_bench");
 
         ShapedRecipe saddleRecipe = new ShapedRecipe(key, saddle);
         saddleRecipe.shape("LLL", "SLS", "T T");

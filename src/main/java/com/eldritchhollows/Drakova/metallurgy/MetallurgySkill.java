@@ -4,6 +4,8 @@ import com.eldritchhollows.Drakova.DrakovaPlugin;
 import com.eldritchhollows.Drakova.metallurgy.listeners.BronzeAlloyListener;
 import com.eldritchhollows.Drakova.metallurgy.recipes.BronzeIngotRecipe;
 import com.eldritchhollows.Drakova.metallurgy.recipes.HotIronIngotRecipe;
+import com.eldritchhollows.Drakova.metallurgy.recipes.RedHotIronIngotRecipe;
+import com.eldritchhollows.Drakova.metallurgy.recipes.RedHotIronSheetRecipe;
 import com.eldritchhollows.Drakova.utils.DrakovaSkill;
 import com.eldritchhollows.Drakova.utils.DrakovaSkillsManager;
 import dev.aurelium.auraskills.api.AuraSkillsApi;
@@ -37,6 +39,8 @@ public class MetallurgySkill extends DrakovaSkill {
     @Override
     protected void setRecipes() {
         new HotIronIngotRecipe(plugin).register();
+        new RedHotIronIngotRecipe(plugin).register();
+        new RedHotIronSheetRecipe(plugin).register();
         new BronzeIngotRecipe(plugin).register();
     }
 

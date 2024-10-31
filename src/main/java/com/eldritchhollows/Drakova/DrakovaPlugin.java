@@ -3,15 +3,15 @@ package com.eldritchhollows.Drakova;
 import com.eldritchhollows.Drakova.commands.GiveItem;
 import com.eldritchhollows.Drakova.mining.listeners.OreDropListener;
 import com.eldritchhollows.Drakova.recipies.SaddleRecipe;
-import com.eldritchhollows.Drakova.smithing.SmithingLeveler;
-import com.eldritchhollows.Drakova.smithing.SmithingSourceParser;
 import com.eldritchhollows.Drakova.utils.ConfigManager;
 import com.eldritchhollows.Drakova.utils.DrakovaSkillsManager;
-import com.eldritchhollows.Drakova.utils.EDrakovaSkills;
-import dev.aurelium.auraskills.api.AuraSkillsApi;
-import dev.aurelium.auraskills.api.registry.NamespacedRegistry;
-import dev.aurelium.auraskills.api.source.SourceType;
+import org.bukkit.Bukkit;
+import org.bukkit.Material;
+import org.bukkit.inventory.Recipe;
+import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.Iterator;
 
 public final class DrakovaPlugin extends JavaPlugin {
 
@@ -24,6 +24,8 @@ public final class DrakovaPlugin extends JavaPlugin {
 
         // create the ConfigManager and initialize all the configurations (this happens in the ConfigManager);
         configManager = new ConfigManager(this);
+
+        disableRecipes();
 
         // Plugin startup logic
         registerCustomRecipes();
@@ -42,6 +44,22 @@ public final class DrakovaPlugin extends JavaPlugin {
         // Plugin shutdown logic
     }
 
+    /**
+     * Remove base minecraft recipes so custom recipes can take priority
+     */
+    private void disableRecipes() {
+        Iterator<Recipe> iterator = Bukkit.recipeIterator();
+        while (iterator.hasNext()) {
+            Recipe recipe = iterator.next();
+            if (recipe instanceof ShapedRecipe shapedRecipe) {
+                if (shapedRecipe.getResult().getType() == Material.IRON_CHESTPLATE) {
+                    Bukkit.removeRecipe(shapedRecipe.getKey());
+                    break;
+                }
+            }
+        }
+    }
+
     private void registerCustomRecipes() {
         new SaddleRecipe(this).register();
     }
@@ -52,17 +70,6 @@ public final class DrakovaPlugin extends JavaPlugin {
 
     private void registerCommands() {
         this.getCommand("giveitem").setExecutor(new GiveItem(this));
-    }
-
-    private void registerCustomSkills() {
-        AuraSkillsApi auraSkills = AuraSkillsApi.get();
-        NamespacedRegistry registry = auraSkills.useRegistry(id, this.getDataFolder());
-        registry.registerSkill(DrakovaSkillsManager.SMITHING);
-        registry.registerSkill(DrakovaSkillsManager.METALLURGY);
-        // registry.registerSkill(DrakovaSkillsManager.WOODWORKING);
-
-        SourceType smithingSource = registry.registerSourceType(EDrakovaSkills.SMITHING.id(), new SmithingSourceParser());
-        new SmithingLeveler(this, smithingSource).register();
     }
 
 }

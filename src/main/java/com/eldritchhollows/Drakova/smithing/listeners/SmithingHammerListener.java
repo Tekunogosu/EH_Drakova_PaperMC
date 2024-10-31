@@ -1,5 +1,6 @@
 package com.eldritchhollows.Drakova.smithing.listeners;
 
+import com.eldritchhollows.Drakova.smithing.items.armor.IronChestplateBlank;
 import com.eldritchhollows.Drakova.utils.DrakovaSkillsManager;
 import com.eldritchhollows.Drakova.utils.EItemModelData;
 import dev.aurelium.auraskills.api.AuraSkillsApi;
@@ -11,7 +12,6 @@ import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
@@ -30,7 +30,7 @@ public class SmithingHammerListener implements Listener {
 
         ItemStack hammer = event.getItem();
         if (hammer == null) return;
-        if (event.getAction() == Action.RIGHT_CLICK_BLOCK
+        if (event.getAction().isRightClick()
                 && hammer.hasCustomModelData() && hammer.getCustomModelData() == EItemModelData.SMITHING_HAMMER.getId()) {
 
             Block block = event.getClickedBlock();
@@ -76,10 +76,16 @@ public class SmithingHammerListener implements Listener {
                         player.getWorld().dropItem(player.getLocation(), item);
                     }
                 }
-
-
             }
         }
+    }
+
+    public void ShapeArmor(IronChestplateBlank armor) {
+        // check if armor is armor ??
+        // check if armor is blank
+        // counter for num of right clicks, takes 2 swings to shape armor
+        // give smithing exp
+        // give Shaped armor to user
     }
 
 

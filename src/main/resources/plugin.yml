@@ -2,7 +2,10 @@ name: DrakovaPlugin
 version: '0.1.1'
 main: com.eldritchhollows.Drakova.DrakovaPlugin
 api-version: '1.21.1'
-depend: [ AuraSkills, Vault ]
+depend:
+  - AuraSkills
+  - Vault
+  - DecentHolograms
 load: POSTWORLD
 prefix: Drakova
 authors: [ Tekunogosu ]

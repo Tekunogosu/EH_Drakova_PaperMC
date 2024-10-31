@@ -17,7 +17,7 @@ public class HotIronIngotRecipe extends DrakovaRecipe {
 
     @Override
     public void register() {
-        ItemStack hotIron = HotIronIngot.create(plugin);
+        ItemStack hotIron = HotIronIngot.create();
 
         NamespacedKey ironIngotKey = new NamespacedKey(plugin, DrakovaPlugin.id + "_hot_iron_ingot_from_raw");
         FurnaceRecipe ironIngotFurnaceRecipe = new FurnaceRecipe(ironIngotKey, hotIron, Material.RAW_IRON, 0.5f, 150);

@@ -1,7 +1,9 @@
 package com.eldritchhollows.Drakova.smithing;
 
 import com.eldritchhollows.Drakova.DrakovaPlugin;
+import com.eldritchhollows.Drakova.smithing.listeners.ShapeArmorListener;
 import com.eldritchhollows.Drakova.smithing.listeners.SmithingHammerListener;
+import com.eldritchhollows.Drakova.smithing.recipes.BlankIronChestplateRecipe;
 import com.eldritchhollows.Drakova.utils.DrakovaSkill;
 import com.eldritchhollows.Drakova.utils.DrakovaSkillsManager;
 import com.eldritchhollows.Drakova.utils.EDrakovaSkills;
@@ -22,6 +24,7 @@ public class SmithingSkill extends DrakovaSkill {
         setSources();
         setItems();
         setListeners();
+        setRecipes();
     }
 
     @Override
@@ -36,11 +39,12 @@ public class SmithingSkill extends DrakovaSkill {
 
     @Override
     protected void setRecipes() {
-
+        new BlankIronChestplateRecipe(plugin).register();
     }
 
     @Override
     protected void setListeners() {
         Bukkit.getPluginManager().registerEvents(new SmithingHammerListener(auraSkills), plugin);
+        Bukkit.getPluginManager().registerEvents(new ShapeArmorListener(plugin, auraSkills), plugin);
     }
 }
