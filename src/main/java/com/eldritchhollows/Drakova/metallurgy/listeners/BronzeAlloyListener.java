@@ -11,9 +11,7 @@ import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -37,37 +35,37 @@ public class BronzeAlloyListener implements Listener {
 
     @EventHandler
     public void onPlayerInteract(PlayerInteractEvent event) {
-
+        return;
         // only trigger for the main hand, so we don't trigger twice each time
-        if (event.getHand() != EquipmentSlot.HAND)
-            return;
-
-        // check if the player is right-clicking on a cauldron
-        if (event.getAction() == Action.RIGHT_CLICK_BLOCK) {
-
-            Block block = event.getClickedBlock();
-            Player player = event.getPlayer();
-
-            if (block != null && block.getType() == Material.LAVA_CAULDRON) {
-                // level 3 indicates full of lava
-                UUID playerID = player.getUniqueId();
-                ItemStack handItem = player.getInventory().getItemInMainHand();
-
-                if (handItem.getType() == Material.RAW_IRON) {
-                    incrementPlayerIron(playerID);
-                    consumeOneItem(player);
-                    player.sendMessage(Component.text("Added 1 iron (" + playerIronCount.get(playerID) + "/3)"));
-                    checkForBronzeCreation(player, block);
-                } else if (isRawCassiterite(handItem)) {
-                    incrementCassiterite(playerID);
-                    consumeOneItem(player);
-                    player.sendMessage(
-                            Component.text("Added 1 cassiterite (" + playerCassiteriteCount.get(playerID) + "/1)"));
-                    checkForBronzeCreation(player, block);
-                }
-
-            }
-        }
+//        if (event.getHand() != EquipmentSlot.HAND)
+//            return;
+//
+//        // check if the player is right-clicking on a cauldron
+//        if (event.getAction() == Action.RIGHT_CLICK_BLOCK) {
+//
+//            Block block = event.getClickedBlock();
+//            Player player = event.getPlayer();
+//
+//            if (block != null && block.getType() == Material.LAVA_CAULDRON) {
+//                // level 3 indicates full of lava
+//                UUID playerID = player.getUniqueId();
+//                ItemStack handItem = player.getInventory().getItemInMainHand();
+//
+//                if (handItem.getType() == Material.RAW_IRON) {
+//                    incrementPlayerIron(playerID);
+//                    consumeOneItem(player);
+//                    player.sendMessage(Component.text("Added 1 iron (" + playerIronCount.get(playerID) + "/3)"));
+//                    checkForBronzeCreation(player, block);
+//                } else if (isRawCassiterite(handItem)) {
+//                    incrementCassiterite(playerID);
+//                    consumeOneItem(player);
+//                    player.sendMessage(
+//                            Component.text("Added 1 cassiterite (" + playerCassiteriteCount.get(playerID) + "/1)"));
+//                    checkForBronzeCreation(player, block);
+//                }
+//
+//            }
+//        }
     }
 
     // Check for the actual tin item since it uses the iron nugget material, we

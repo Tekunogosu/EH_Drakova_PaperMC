@@ -1,2 +1,2 @@
 drakova:
-  test_val: 1
+  disable-recipes: true
